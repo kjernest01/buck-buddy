@@ -80,9 +80,12 @@ monthly_budget(Category, Cost, Budget) :- ((Cost > Budget, Category = insurance)
 
 monthly_reminder("Don't forget to save for your personal and emergency funds!").
 
-yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = recreation) ->  write("Cost is inside of yearly budget!"); write("Cost is out of yearly budget! Consider something less expensive.")).
-yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = entertainment) ->  write("Cost is inside of yearly budget!"); write("Cost is out of yearly budget! Consider something less expensive.")).
-yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = insurance) ->  write("Cost is inside of yearly budget!"); write("Cost is out of yearly budget! Consider something less expensive.")).
+yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = recreation) ->  write("Cost is inside of yearly budget!")).
+yearly_budget(Category, Cost, Budget) :- ((Cost > Budget, Category = recreation) ->  write("Cost is out of yearly budget! Consider something less expensive.")).
+yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = entertainment) ->  write("Cost is inside of yearly budget!")).
+yearly_budget(Category, Cost, Budget) :- ((Cost > Budget, Category = entertainment) ->  write("Cost is out of yearly budget! Consider something less expensive.")).
+yearly_budget(Category, Cost, Budget) :- ((Cost =< Budget, Category = insurance) ->  write("Cost is inside of yearly budget!")).
+yearly_budget(Category, Cost, Budget) :- ((Cost > Budget, Category = insurance) ->  write("Cost is out of yearly budget! Consider something less expensive.")).
 
 /*
 	% Queries
